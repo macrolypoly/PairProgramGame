@@ -1,0 +1,14 @@
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe.config
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.pdb
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.exe
+C:\ElevenFiftyProjects\Gold-Badge-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.pdb
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe.config
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\bin\Debug\PairProgrammingGame.pdb
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.csprojAssemblyReference.cache
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.csproj.CoreCompileInputs.cache
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.exe
+J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.pdb
