@@ -12,3 +12,10 @@ J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairP
 J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.csproj.CoreCompileInputs.cache
 J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.exe
 J:\Downloads\ProgrammingGameAssignment-main\ProgrammingGameAssignment-main\PairProgrammingGame\obj\Debug\PairProgrammingGame.pdb
+C:\1150\PairProgrammingGame\obj\Debug\PairProgrammingGame.csprojAssemblyReference.cache
+C:\1150\PairProgrammingGame\obj\Debug\PairProgrammingGame.csproj.CoreCompileInputs.cache
+C:\1150\PairProgrammingGame\obj\Debug\PairProgrammingGame.exe
+C:\1150\PairProgrammingGame\obj\Debug\PairProgrammingGame.pdb
+C:\1150\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe.config
+C:\1150\PairProgrammingGame\bin\Debug\PairProgrammingGame.exe
+C:\1150\PairProgrammingGame\bin\Debug\PairProgrammingGame.pdb
