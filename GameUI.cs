@@ -170,7 +170,7 @@ namespace PairProgrammingGame
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
                     command = Console.ReadLine().ToLower();
-                    
+
                     if (command.Contains("police") || command.Contains("officer"))
                     {
                         Console.WriteLine("You talk to the police officer. " + "He yells, 'Cutting in line is against the law' and then turns to ignore you");
@@ -191,49 +191,51 @@ namespace PairProgrammingGame
                         {
                             Console.WriteLine("She says, 'I'm afraid I can't help.'\n");
                         }
-                        else if (command.Contains("exit") || command.Contains("leave"))
+                    
+      
+                    }
+                    else if (command.Contains("exit") || command.Contains("leave"))
                     {
                         Console.WriteLine("You exit the bank.");
                         Console.WriteLine("Which direction will you go?");
                         command = Console.ReadLine();
-                            if (currentRoom == Bank && command.Contains("north"))
-                            {
-                                currentRoom = Apartments;
-                            }
-                            if (currentRoom == Bank && command.Contains("south"))
-                            {
-                                currentRoom = Pizza;
-                            }
-                            if (currentRoom == Bank && command.Contains("east"))
-                            {
-                                currentRoom = GroceryStore;
-                            }
-                            if (currentRoom == Bank && command.Contains("west"))
-                            {
-                                currentRoom = Suburbs;
-                            }
-                        }
-                        else if (command.Contains("exit") || command.Contains("leave"))
+                        if (currentRoom == Bank && command.Contains("north"))
                         {
-                            Console.WriteLine("You exit the bank.");
-                            Console.WriteLine("Which direction will you go?");
-                            command = Console.ReadLine().ToLower();
-                            if (currentRoom == Bank && command.Contains("north")) // these commands are contradicting the navigation commands in the while loop at the top
-                            {
-                                currentRoom = Apartments;
-                            }
-                            if (currentRoom == Bank && command.Contains("south"))
-                            {
-                                currentRoom = Pizza;
-                            }
-                            if (currentRoom == Bank && command.Contains("east"))
-                            {
-                                currentRoom = GroceryStore;
-                            }
-                            if (currentRoom == Bank && command.Contains("west"))
-                            {
-                                currentRoom = Suburbs;
-                            }
+                            currentRoom = Apartments;
+                        }
+                        if (currentRoom == Bank && command.Contains("south"))
+                        {
+                            currentRoom = Pizza;
+                        }
+                        if (currentRoom == Bank && command.Contains("east"))
+                        {
+                            currentRoom = GroceryStore;
+                        }
+                        if (currentRoom == Bank && command.Contains("west"))
+                        {
+                            currentRoom = Suburbs;
+                        }
+                    }
+                    else if (command.Contains("exit") || command.Contains("leave"))
+                    {
+                        Console.WriteLine("You exit the bank.");
+                        Console.WriteLine("Which direction will you go?");
+                        command = Console.ReadLine().ToLower();
+                        if (currentRoom == Bank && command.Contains("north")) // these commands are contradicting the navigation commands in the while loop at the top
+                        {
+                            currentRoom = Apartments;
+                        }
+                        if (currentRoom == Bank && command.Contains("south"))
+                        {
+                            currentRoom = Pizza;
+                        }
+                        if (currentRoom == Bank && command.Contains("east"))
+                        {
+                            currentRoom = GroceryStore;
+                        }
+                        if (currentRoom == Bank && command.Contains("west"))
+                        {
+                            currentRoom = Suburbs;
                         }
                     }
                 }
