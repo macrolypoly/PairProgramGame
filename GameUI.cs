@@ -41,9 +41,10 @@ namespace PairProgrammingGame
             Console.WriteLine("With cheese pizza in-hand, which direction will you go? (North, South, East, West)");
             bool warmPizza = true;
             int strikes = 0;
+            string command;
             while (warmPizza)
             {
-                string command = Console.ReadLine().ToLower();
+                command = Console.ReadLine().ToLower();
                 Console.Clear();
                 if (command.Contains("south"))
                 {
@@ -263,7 +264,7 @@ namespace PairProgrammingGame
                                 "He says, 'I was getting worried the pizza would get cold! Here's your tip.\n \n" +
                                 "Congratulations.  You have solved the mystery of the cheese pizza!\n \n" +
                                 "game over");
-                            if (catReturned = true)
+                            if (catReturned == true)
                             {
                                 Console.WriteLine("Congratulations, you returned the missing cat!");
                             }
@@ -381,64 +382,69 @@ namespace PairProgrammingGame
                 }
             
                 }
-                
-                while (currentRoom == Park)
-                {
-                    Console.WriteLine(currentRoom.Splash);
-                if (posterSeen = true)
+            while (currentRoom == Park)
+            {
+                Console.WriteLine(currentRoom.Splash);
+                if (posterSeen == true)
                 {
                     Console.WriteLine("You notice an orange tabby cat.");
-                }
                     Console.WriteLine("What will you do? \n");
-
                     command = Console.ReadLine().ToLower();
-                    if (command.Contains("talk"))
+                }
+                else
+                {
+                    Console.WriteLine("What will you do? \n");
+                    command = Console.ReadLine().ToLower();
+                }
+                if (command.Contains("talk"))
+                {
+                    Console.WriteLine("You approach the smoking youths. They eye the pizza in your hand and ask you to hand it over.");
+                    Console.WriteLine("What will you do?");
+                    command = Console.ReadLine();
+                    if (command.StartsWith("hand over"))
                     {
-                        Console.WriteLine("You approach the smoking youths. They eye the pizza in your hand and ask you to hand it over.");
-                        Console.WriteLine("What will you do?");
-                        command = Console.ReadLine();
-                        if (command.StartsWith("hand over"))
-                        {
-                            Console.WriteLine("With shaking hands, you hand over the pizza to the youths.");
-                            warmPizza = false;
-                        }
-                        if (command.Contains("run") || command.Contains("keep") || command.Contains("no"))
-                        {
-                            Console.WriteLine("You run away.");
-                        }
+                        Console.WriteLine("With shaking hands, you hand over the pizza to the youths.");
+                        warmPizza = false;
                     }
-                    if (command.StartsWith("pet"))
+                    if (command.Contains("run") || command.Contains("keep") || command.Contains("no"))
                     {
-                        Console.WriteLine("You pet the cat.");
-                    }
-                    if (command.StartsWith("get"))
-                    {
-                        Console.WriteLine("you get the cat.");
-                        catFound = true;
-                        Console.WriteLine("You remember the poster saying, 'If found, return to owner at Apartment 213.'");
-                    }
-                    if (command.Contains("exit") || command.Contains("leave"))
-                    {
-                        Console.WriteLine("which direction do you go?");
-                        command = Console.ReadLine();
-                        if (currentRoom == Park && command.Contains("north"))
-                        {
-                            currentRoom = Pizza;
-                        }
-                        else if (currentRoom == Park && command.Contains("south"))
-                        {
-                            currentRoom = DoctorsOffice;
-                        }
-                        else if (currentRoom == Park && command.Contains("west"))
-                        {
-                            Console.WriteLine("There's nothing there.");
-                        }
-                        else if (currentRoom == Park && command.Contains("east"))
-                        {
-                            Console.WriteLine("There's nothing there.");
-                        }
+                        Console.WriteLine("You run away.");
                     }
                 }
+                if (command.StartsWith("pet"))
+                {
+                    Console.WriteLine("You pet the cat.");
+                }
+                if (command.StartsWith("get"))
+                {
+                    Console.WriteLine("you get the cat.");
+                    catFound = true;
+                    Console.WriteLine("You remember the poster saying, 'If found, return to owner at Apartment 213.'");
+                }
+                if (command.Contains("exit") || command.Contains("leave"))
+                {
+                    Console.WriteLine("which direction do you go?");
+                    command = Console.ReadLine();
+                    if (currentRoom == Park && command.Contains("north"))
+                    {
+                        currentRoom = Pizza;
+                    }
+                    else if (currentRoom == Park && command.Contains("south"))
+                    {
+                        currentRoom = DoctorsOffice;
+                    }
+                    else if (currentRoom == Park && command.Contains("west"))
+                    {
+                        Console.WriteLine("There's nothing there.");
+                    }
+                    else if (currentRoom == Park && command.Contains("east"))
+                    {
+                        Console.WriteLine("There's nothing there.");
+                    }
+                }
+            }
+
+
             while (currentRoom == Pizza)
             {
                 Console.WriteLine("You are back at the pizza shop. Your boss is looking at you angrily. Stacy is wiping down a desk, pointedly avoiding eavesdropping.");
@@ -636,7 +642,7 @@ namespace PairProgrammingGame
                 {
                     Console.WriteLine("Administrator says, 'Yum, pizza is my favorite. I'd take that off your hands but I've already had lunch today'.\n");
                 }
-                if (command.Contains("front desk" && command.Contains("cat")))
+                if (command.Contains("front desk") && command.Contains("cat"))
                 {
                     Console.WriteLine("Oh you're looking for the missing cat? I heard it was last seen at the park.");
                 }
@@ -723,16 +729,13 @@ namespace PairProgrammingGame
 
 
                 }
-            }
-        
-
         public static Room Bank = new Room(
-         "You are at the bank. You see a police officer about to greet the bank teller.\n" +
-         "You also see an emergency exit and the entrance you just came from.\n",
+        "You are at the bank. You see a police officer about to greet the bank teller.\n" +
+        "You also see an emergency exit and the entrance you just came from.\n",
 
-        new List<string> { "exit", "emergency exit" });
+       new List<string> { "exit", "emergency exit" });
 
-        public static Room Park = new Room(  
+        public static Room Park = new Room(
                 "You walk into a park. You see a group of smoking youths who stare at you menacingly \n",
                 new List<string> { "exit" }
                 );
@@ -744,29 +747,29 @@ namespace PairProgrammingGame
                 "You are at the pizza parlor you work at. You see your angry boss, and your coworker, Stacy. You also see the entrance you just came from",
                 new List<string> { "exit" }
                 );
-    public static Room EdgeOfTownNorth = new Room(
-        "You have reached the edge of town.  That's not good! Better try a different direction.",
-        new List<string> { "exit" }
-        );
-
-    public static Room EdgeOfTownSouth = new Room(
-        "You have reached the edge of town.  That's not good! Better try a different direction.",
-        new List<string> { "exit" }
-        );
-
-    public static Room EdgeOfTownEast = new Room(
-        "You have reached the edge of town.  That's not good! Better try a different direction.",
-        new List<string> { "exit" }
-        );
-
-    public static Room EdgeOfTownWest = new Room(
-        "You have reached the edge of town.  That's not good! Better try a different direction.",
-        new List<string> { "exit" }
-        );
-    public static Room GroceryStore = new Room(
-            "You are inside a grocery store. You spot two ladies, Rebecca and Sharlene. You also notice a missing cat poster.",  // option 1) talk to rebecca (not helpful)  option 2) talk to Sharlene (offers a clue) option 3) inspect poster
+        public static Room EdgeOfTownNorth = new Room(
+            "You have reached the edge of town.  That's not good! Better try a different direction.",
             new List<string> { "exit" }
             );
+
+        public static Room EdgeOfTownSouth = new Room(
+            "You have reached the edge of town.  That's not good! Better try a different direction.",
+            new List<string> { "exit" }
+            );
+
+        public static Room EdgeOfTownEast = new Room(
+            "You have reached the edge of town.  That's not good! Better try a different direction.",
+            new List<string> { "exit" }
+            );
+
+        public static Room EdgeOfTownWest = new Room(
+            "You have reached the edge of town.  That's not good! Better try a different direction.",
+            new List<string> { "exit" }
+            );
+        public static Room GroceryStore = new Room(
+                "You are inside a grocery store. You spot two ladies, Rebecca and Sharlene. You also notice a missing cat poster.",  // option 1) talk to rebecca (not helpful)  option 2) talk to Sharlene (offers a clue) option 3) inspect poster
+                new List<string> { "exit" }
+                );
         public static Room Suburbs = new Room(
             "You enter the suburbs west of town. Concerned parents stare at you from their front patios.",  // option 1) approach any parent  option 2) exit 
             new List<string> { "exit" }
@@ -777,7 +780,8 @@ namespace PairProgrammingGame
             new List<string> { "exit" }
             );
     }
-}
+    }
+
 
 
 
