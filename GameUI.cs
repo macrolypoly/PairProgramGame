@@ -24,6 +24,7 @@ namespace PairProgrammingGame
         public void Run()
         {
             Room currentRoom = Pizza;
+            string command = "";
 
             Console.WriteLine(currentRoom.Splash);
 
@@ -39,139 +40,152 @@ namespace PairProgrammingGame
             Console.WriteLine("In order to succeed you must venture into the unkown and deliver this cheese pizza without fail.");
             Console.ReadKey();
             Console.WriteLine("With cheese pizza in-hand, which direction will you go? (North, South, East, West)");
-            bool warmPizza = true;
-            int strikes = 0;
-            string command;
-            while (warmPizza)
+            command = Console.ReadLine().ToLower();
+            Console.Clear();
+            if (command.Contains("south"))
             {
-                command = Console.ReadLine().ToLower();
-                Console.Clear();
-                if (command.Contains("south"))
+                Console.WriteLine("You head south");
+                if (currentRoom == Park)
                 {
-                    Console.WriteLine("You head south");
-                    if (currentRoom == Park)
-                    {
-                        currentRoom = DoctorsOffice;
-                    }
-                    else if (currentRoom == DoctorsOffice)
-                    {
-                        currentRoom = EdgeOfTownSouth;
-                    }
-                    else if (currentRoom == Bank)
-                    {
-                        currentRoom = Pizza;
-                    }
-                    else if (currentRoom == Apartments)
-                    {
-                        currentRoom = Bank;
-                    }
-                    else if (currentRoom == GroceryStore)
-                    {
-                        currentRoom = Park;
-                    }
-                    else if (currentRoom == Pizza)
-                    {
-                        currentRoom = Park;
-                    }
-                    else
-                    {
-                        currentRoom = Park;
-                    }
+                    currentRoom = DoctorsOffice;
                 }
-
-
-                else if (command.Contains("north"))
+                else if (currentRoom == DoctorsOffice)
                 {
-                    Console.WriteLine("You head north");
-                    if (currentRoom == Bank)
-                    {
-                        currentRoom = Apartments;
-                    }
-                    else if (currentRoom == Apartments)
-                    {
-                        currentRoom = EdgeOfTownNorth;
-                    }
-                    else if (currentRoom == Park)
-                    {
-                        currentRoom = Pizza;
-                    }
-                    else if (currentRoom == DoctorsOffice)
-                    {
-                        currentRoom = Park;
-                    }
-                    else if (currentRoom == Suburbs)
-                    {
-                        currentRoom = Bank;
-                    }
-                    else
-                    {
-                        currentRoom = Bank;
-                    }
+                    currentRoom = EdgeOfTownSouth;
                 }
-
-
-                else if (command.Contains("east"))
+                else if (currentRoom == Bank)
                 {
-                    Console.WriteLine("You head east");
-                    if (currentRoom == GroceryStore)
-                    {
-                        currentRoom = EdgeOfTownEast;
-                    }
-                    else if (currentRoom == Suburbs)
-                    {
-                        currentRoom = Pizza;
-                    }
-                    else if (currentRoom == Pizza)
-                    {
-                        currentRoom = GroceryStore;
-                    }
-                    else if (currentRoom == Park)
-                    {
-                        currentRoom = GroceryStore;
-                    }
-                    else
-                    {
-                        currentRoom = GroceryStore;
-                    }
+                    currentRoom = Pizza;
                 }
-
-                else if (command.Contains("west"))
+                else if (currentRoom == Apartments)
                 {
-                    Console.WriteLine("You head west");
-                    if (currentRoom == Suburbs)
-                    {
-                        currentRoom = EdgeOfTownWest;
-                    }
-                    else if (currentRoom == GroceryStore)
-                    {
-                        currentRoom = Pizza;
-                    }
-                    else if (currentRoom == Pizza)
-                    {
-                        currentRoom = Suburbs;
-                    }
-                    else if (currentRoom == Park)
-                    {
-                        currentRoom = Suburbs;
-                    }
-                    else
-                    {
-                        currentRoom = Suburbs;
-                    }
+                    currentRoom = Bank;
                 }
-
+                else if (currentRoom == GroceryStore)
+                {
+                    currentRoom = Park;
+                }
+                else if (currentRoom == Pizza)
+                {
+                    currentRoom = Park;
+                }
                 else
                 {
-                    Console.WriteLine("That's not a direction. Try again");
+                    currentRoom = Park;
                 }
-                // currentrooms
-                while (currentRoom == Bank)
+            }
+
+
+            else if (command.Contains("north"))
+            {
+                Console.WriteLine("You head north");
+                if (currentRoom == Bank)
+                {
+                    currentRoom = Apartments;
+                }
+                else if (currentRoom == Apartments)
+                {
+                    currentRoom = EdgeOfTownNorth;
+                }
+                else if (currentRoom == Park)
+                {
+                    currentRoom = Pizza;
+                }
+                else if (currentRoom == DoctorsOffice)
+                {
+                    currentRoom = Park;
+                }
+                else if (currentRoom == Suburbs)
+                {
+                    currentRoom = Bank;
+                }
+                else if (currentRoom == Pizza)
+                {
+                    currentRoom = Bank;
+                }
+                else if (currentRoom == EdgeOfTownNorth)
+                {
+                    Console.WriteLine("what are you doing?");
+                    currentRoom = Apartments;
+                }
+            }
+
+
+            else if (command.Contains("east"))
+            {
+                Console.WriteLine("You head east");
+                if (currentRoom == GroceryStore)
+                {
+                    currentRoom = EdgeOfTownEast;
+                }
+                else if (currentRoom == Suburbs)
+                {
+                    currentRoom = Pizza;
+                }
+                else if (currentRoom == Pizza)
+                {
+                    currentRoom = GroceryStore;
+                }
+                else if (currentRoom == Park)
+                {
+                    currentRoom = GroceryStore;
+                }
+                else
+                {
+                    currentRoom = GroceryStore;
+                }
+            }
+
+            else if (command.Contains("west"))
+            {
+                Console.WriteLine("You head west");
+                if (currentRoom == Suburbs)
+                {
+                    currentRoom = EdgeOfTownWest;
+                }
+                else if (currentRoom == GroceryStore)
+                {
+                    currentRoom = Pizza;
+                }
+                else if (currentRoom == Pizza)
+                {
+                    currentRoom = Suburbs;
+                }
+                else if (currentRoom == Park)
+                {
+                    currentRoom = Suburbs;
+                }
+                else
+                {
+                    currentRoom = Suburbs;
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("That's not a direction. Try again");
+            }
+            bool warmPizza = true;
+            int strikes = 0;
+            if (strikes == 3)
+            {
+                warmPizza = false;
+
+            }
+            else
+            {
+                warmPizza = true;
+            }
+
+            while (warmPizza)
+            {
+                while (currentRoom == Bank && warmPizza == true)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
                     command = Console.ReadLine().ToLower();
 
-                    if (command.Contains("police") || command.Contains("officer"))
+                    if (command.Contains("police") || command.Contains("officer") || command.Contains("cop"))
                     {
                         Console.WriteLine("You talk to the police officer. " + "He yells, 'Cutting in line is against the law' and then turns to ignore you");
                     }
@@ -191,8 +205,8 @@ namespace PairProgrammingGame
                         {
                             Console.WriteLine("She says, 'I'm afraid I can't help.'\n");
                         }
-                    
-      
+
+
                     }
                     else if (command.Contains("exit") || command.Contains("leave"))
                     {
@@ -219,27 +233,11 @@ namespace PairProgrammingGame
                     else if (command.Contains("exit") || command.Contains("leave"))
                     {
                         Console.WriteLine("You exit the bank.");
-                        Console.WriteLine("Which direction will you go?");
-                        command = Console.ReadLine().ToLower();
-                        if (currentRoom == Bank && command.Contains("north")) // these commands are contradicting the navigation commands in the while loop at the top
-                        {
-                            currentRoom = Apartments;
-                        }
-                        if (currentRoom == Bank && command.Contains("south"))
-                        {
-                            currentRoom = Pizza;
-                        }
-                        if (currentRoom == Bank && command.Contains("east"))
-                        {
-                            currentRoom = GroceryStore;
-                        }
-                        if (currentRoom == Bank && command.Contains("west"))
-                        {
-                            currentRoom = Suburbs;
-                        }
+
                     }
                 }
-                while (currentRoom == Apartments)
+
+                while (currentRoom == Apartments && warmPizza == true)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -284,8 +282,29 @@ namespace PairProgrammingGame
                             Console.WriteLine("A woman answers the door. \n" + "She says, 'I think you have the wrong apartment, sorry.'");
                         }
                         Console.WriteLine("which door will you knock on?");
-                        command = Console.ReadLine();
-                        if (command.Contains("213"))
+                        command = Console.ReadLine().ToLower();
+                        if (command.Contains("exit") || command.Contains("leave"))
+                        {
+                            Console.WriteLine("which direction do you go?");
+                            command = Console.ReadLine();
+                            if (currentRoom == Apartments && command.Contains("north"))
+                            {
+                                currentRoom = EdgeOfTownNorth;
+                            }
+                            else if (currentRoom == Apartments && command.Contains("south"))
+                            {
+                                currentRoom = Bank;
+                            }
+                            else if (currentRoom == Apartments && command.Contains("west"))
+                            {
+                                Console.WriteLine("There's nothing there.");
+                            }
+                            else if (currentRoom == Apartments && command.Contains("east"))
+                            {
+                                Console.WriteLine("There's nothing there.");
+                            }
+                        }
+                        if (command.Contains("213") && catFound == true && catReturned == true)
                         {
                             Console.WriteLine("You knock on door 213.");
                             Console.WriteLine("You wait a couple of minutes. No one answers the door.");
@@ -298,7 +317,12 @@ namespace PairProgrammingGame
                                  "He says, 'I was getting worried the pizza would get cold! Here's your tip.\n \n" +
                                  "Congratulations.  You have solved the mystery of the cheese pizza!\n \n" +
                                  "game over");
+                            if (catReturned == true)
+                            {
+                                Console.WriteLine("Congratulations, you returned the missing cat!");
+                            }
                             Console.ReadLine();
+
                             Console.Clear();
                             GameTitle();
 
@@ -339,28 +363,7 @@ namespace PairProgrammingGame
 
                         }
                     }
-                    else if (command.Contains("exit") || command.Contains("leave") || command.Contains("stairs"))
-                    {
-                        Console.WriteLine("which direction do you go?");
-                        command = Console.ReadLine().ToLower();
-                        if (currentRoom == Apartments && command.Contains("north"))
-                        {
-                            currentRoom = EdgeOfTownNorth;
-                        }
-                        else if (currentRoom == Apartments && command.Contains("south"))
-                        {
-                            currentRoom = Bank;
-                        }
-                        else if (currentRoom == Park && command.Contains("west"))
-                        {
-                            Console.WriteLine("There's nothing there.");
-                        }
-                        else if (currentRoom == Park && command.Contains("east"))
-                        {
-                            Console.WriteLine("There's nothing there.");
-                        }
-                    }
-                    else if (command.Contains("exit") || command.Contains("leave") || command.Contains("stairs"))
+                    if (command.Contains("exit") || command.Contains("leave"))
                     {
                         Console.WriteLine("which direction do you go?");
                         command = Console.ReadLine();
@@ -372,121 +375,19 @@ namespace PairProgrammingGame
                         {
                             currentRoom = Bank;
                         }
-                        else if (currentRoom == Park && command.Contains("west"))
+                        else if (currentRoom == Apartments && command.Contains("west"))
                         {
                             Console.WriteLine("There's nothing there.");
                         }
-                        else if (currentRoom == Park && command.Contains("east"))
+                        else if (currentRoom == Apartments && command.Contains("east"))
                         {
                             Console.WriteLine("There's nothing there.");
                         }
                     }
-                }
-            
-                }
-            while (currentRoom == Park)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                if (posterSeen == true)
-                {
-                    Console.WriteLine("You notice an orange tabby cat.");
-                    Console.WriteLine("What will you do? \n");
-                    command = Console.ReadLine().ToLower();
-                }
-                else
-                {
-                    Console.WriteLine("What will you do? \n");
-                    command = Console.ReadLine().ToLower();
-                }
-                if (command.Contains("talk"))
-                {
-                    Console.WriteLine("You approach the smoking youths. They eye the pizza in your hand and ask you to hand it over.");
-                    Console.WriteLine("What will you do?");
-                    command = Console.ReadLine();
-                    if (command.StartsWith("hand over"))
-                    {
-                        Console.WriteLine("With shaking hands, you hand over the pizza to the youths.");
-                        warmPizza = false;
-                    }
-                    if (command.Contains("run") || command.Contains("keep") || command.Contains("no"))
-                    {
-                        Console.WriteLine("You run away.");
-                    }
-                }
-                if (command.StartsWith("pet"))
-                {
-                    Console.WriteLine("You pet the cat.");
-                }
-                if (command.StartsWith("get"))
-                {
-                    Console.WriteLine("you get the cat.");
-                    catFound = true;
-                    Console.WriteLine("You remember the poster saying, 'If found, return to owner at Apartment 213.'");
-                }
-                if (command.Contains("exit") || command.Contains("leave"))
-                {
-                    Console.WriteLine("which direction do you go?");
-                    command = Console.ReadLine();
-                    if (currentRoom == Park && command.Contains("north"))
-                    {
-                        currentRoom = Pizza;
-                    }
-                    else if (currentRoom == Park && command.Contains("south"))
-                    {
-                        currentRoom = DoctorsOffice;
-                    }
-                    else if (currentRoom == Park && command.Contains("west"))
-                    {
-                        Console.WriteLine("There's nothing there.");
-                    }
-                    else if (currentRoom == Park && command.Contains("east"))
-                    {
-                        Console.WriteLine("There's nothing there.");
-                    }
-                }
-            }
 
+                }
 
-            while (currentRoom == Pizza)
-            {
-                Console.WriteLine("You are back at the pizza shop. Your boss is looking at you angrily. Stacy is wiping down a desk, pointedly avoiding eavesdropping.");
-                Console.WriteLine("He yells, 'What are you doing here? Go deliver that pizza!'");
-                Console.WriteLine("What will you do? \n");
-
-                command = Console.ReadLine().ToLower();
-                if (command.Contains("Stacy"))
-                {
-                    Console.WriteLine("Stacy recommends you get back out there and find whoever ordered that pizza.\n" +
-                        "The boss won't be happy to see that you're here");
-                }
-                else if (command.Contains("boss"))
-                {
-                    Console.WriteLine("Your boss looks red in the face as he starts tapping his watch.");
-                }
-                if (command.Contains("exit") || command.Contains("back") || command.Contains("leave"))
-                {
-                    Console.WriteLine("You exit the pizza place.");
-                    Console.WriteLine("Which direction will you go?");
-                    command = Console.ReadLine().ToLower();
-                    if (currentRoom == Pizza && command.Contains("west"))
-                    {
-                        currentRoom = Suburbs;
-                    }
-                    else if (currentRoom == Pizza && command.Contains("east"))
-                    {
-                        currentRoom = GroceryStore;
-                    }
-                    else if (currentRoom == Pizza && command.Contains("north"))
-                    {
-                        currentRoom = Bank;
-                    }
-                    else if (currentRoom == Pizza && command.Contains("south"))
-                    {
-                        currentRoom = Park;
-                    }
-                }
-            }
-            while (currentRoom == GroceryStore)
+                while (currentRoom == GroceryStore && warmPizza == true)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -526,156 +427,265 @@ namespace PairProgrammingGame
                         {
                             currentRoom = Park;
                         }
-                        
+
                     }
                 }
-            while (currentRoom == EdgeOfTownNorth)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                strikes += 1;
-                Console.WriteLine("Which direction will you go?");
-                command = Console.ReadLine().ToLower();
 
-                if (currentRoom == EdgeOfTownNorth && command.Contains("north"))
+                while (currentRoom == Park && warmPizza == true)
                 {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
+                    Console.WriteLine(currentRoom.Splash);
+                    if (posterSeen == true && catFound == false)
+                    {
+                        Console.WriteLine("You notice an orange tabby cat.");
+                        Console.WriteLine("What will you do? \n");
+                        command = Console.ReadLine().ToLower();
+                    }
+                    else
+                    {
+                        Console.WriteLine("What will you do? \n");
+                        command = Console.ReadLine().ToLower();
+                    }
+                    if (command.Contains("talk") || command.Contains("approach") || command.Contains("ask"))
+                    {
+                        Console.WriteLine("You approach the smoking youths. They eye the pizza in your hand and ask you to hand it over.");
+                        Console.WriteLine("What will you do?");
+                        command = Console.ReadLine();
+                        if (command.Contains("pay") || command.Contains("pizza"))
+                        {
+                            Console.WriteLine("'Ewwwww! Cheese pizza sucks, go away!' is yelled in your face.");
+                        }
+                        if (command.Contains("hand") || command.Contains("give"))
+                        {
+                            Console.WriteLine("With shaking hands, you hand over the pizza to the youths. You have failed");
+                            Console.WriteLine("GAME OVER");
+                            Console.ReadLine();
+                            Console.Clear();
+                            GameTitle();
+                        }
+                        if (command.Contains("run") || command.Contains("keep") || command.Contains("no"))
+                        {
+                            Console.WriteLine("You run away.");
+                        }
+                    }
+                    if (command.StartsWith("pet"))
+                    {
+                        Console.WriteLine("You pet the cat.");
+                    }
+                    if (command.StartsWith("get"))
+                    {
+                        Console.WriteLine("you get the cat.");
+                        catFound = true;
+                        Console.WriteLine("You remember the poster saying, 'If found, return to owner at Apartment 213.'");
+                    }
+                    if (command.Contains("exit") || command.Contains("leave"))
+                    {
+                        Console.WriteLine("which direction do you go?");
+                        command = Console.ReadLine();
+                        if (currentRoom == Park && command.Contains("north"))
+                        {
+                            currentRoom = Pizza;
+                        }
+                        else if (currentRoom == Park && command.Contains("south"))
+                        {
+                            currentRoom = DoctorsOffice;
+                        }
+                        else if (currentRoom == Park && command.Contains("west"))
+                        {
+                            Console.WriteLine("There's nothing there.");
+                        }
+                        else if (currentRoom == Park && command.Contains("east"))
+                        {
+                            Console.WriteLine("There's nothing there.");
+                        }
+                    }
                 }
-                if (currentRoom == EdgeOfTownNorth && command.Contains("south"))
+                while (currentRoom == Pizza && warmPizza == true)
                 {
-                    currentRoom = Apartments;
-                }
-                if (currentRoom == EdgeOfTownNorth && command.Contains("east"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-                if (currentRoom == EdgeOfTownNorth && command.Contains("west"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
+                    Console.WriteLine("You are back at the pizza shop. Your boss is looking at you angrily. Stacy is wiping down a desk, pointedly avoiding eavesdropping.");
+                    Console.WriteLine("He yells, 'What are you doing here? Go deliver that pizza!'");
+                    Console.WriteLine("What will you do? \n");
 
-            }
-            while (currentRoom == EdgeOfTownSouth)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                strikes += 1;
-                Console.WriteLine("Which direction will you go?");
-                command = Console.ReadLine().ToLower();
-
-                if (currentRoom == EdgeOfTownSouth && command.Contains("north"))
-                {
-                    currentRoom = DoctorsOffice;
+                    command = Console.ReadLine().ToLower();
+                    if (command.Contains("Stacy"))
+                    {
+                        Console.WriteLine("Stacy recommends you get back out there and find whoever ordered that pizza.\n" +
+                            "The boss won't be happy to see that you're here");
+                    }
+                    else if (command.Contains("boss"))
+                    {
+                        Console.WriteLine("Your boss looks red in the face as he starts tapping his watch.");
+                    }
+                    if (command.Contains("exit") || command.Contains("back") || command.Contains("leave"))
+                    {
+                        Console.WriteLine("You exit the pizza place.");
+                        Console.WriteLine("Which direction will you go?");
+                        command = Console.ReadLine().ToLower();
+                        if (currentRoom == Pizza && command.Contains("west"))
+                        {
+                            currentRoom = Suburbs;
+                        }
+                        else if (currentRoom == Pizza && command.Contains("east"))
+                        {
+                            currentRoom = GroceryStore;
+                        }
+                        else if (currentRoom == Pizza && command.Contains("north"))
+                        {
+                            currentRoom = Bank;
+                        }
+                        else if (currentRoom == Pizza && command.Contains("south"))
+                        {
+                            currentRoom = Park;
+                        }
+                    }
                 }
-                if (currentRoom == EdgeOfTownSouth && command.Contains("south"))
+                while (currentRoom == EdgeOfTownNorth && warmPizza == true)
                 {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-                if (currentRoom == EdgeOfTownSouth && command.Contains("east"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-                if (currentRoom == EdgeOfTownSouth && command.Contains("west"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-
-            }
-            while (currentRoom == EdgeOfTownEast)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                strikes += 1;
-                Console.WriteLine("Which direction will you go?");
-                command = Console.ReadLine().ToLower();
-
-                if (currentRoom == EdgeOfTownEast && command.Contains("north"))
-                {
-                    currentRoom = Bank;
-                }
-                if (currentRoom == EdgeOfTownEast && command.Contains("south"))
-                {
-                    currentRoom = Park;
-                }
-                if (currentRoom == EdgeOfTownEast && command.Contains("east"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-                if (currentRoom == EdgeOfTownEast && command.Contains("west"))
-                {
-                    currentRoom = GroceryStore;
-                }
-            }
-            while (currentRoom == EdgeOfTownWest)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                strikes += 1;
-                Console.WriteLine("Which direction will you go?");
-                command = Console.ReadLine().ToLower();
-
-                if (currentRoom == EdgeOfTownWest && command.Contains("north"))
-                {
-                    currentRoom = Bank;
-                }
-                if (currentRoom == EdgeOfTownWest && command.Contains("south"))
-                {
-                    currentRoom = Park;
-                }
-                if (currentRoom == EdgeOfTownWest && command.Contains("east"))
-                {
-                    currentRoom = Suburbs;
-                }
-                if (currentRoom == EdgeOfTownWest && command.Contains("west"))
-                {
-                    Console.WriteLine("this leads to nowhere, try a different direction.");
-                }
-
-            }
-            while (currentRoom == DoctorsOffice)
-            {
-                Console.WriteLine(currentRoom.Splash);
-                Console.WriteLine("What will you do? \n");
-                command = Console.ReadLine().ToLower();
-                if (command.Contains("purple") || command.Contains("lipstick"))
-                {
-                    Console.WriteLine("You talk to the woman with purple lipstick.\n" +
-                        "She remarks, 'Smells like cheese pizza, my friend up north loves cheese pizza!'\n" +
-                        "If I knew you better, I'd tell you who it is. But, I don't, so goodbye!");
-                }
-
-                if (command.Contains("front desk") || command.Contains("admin"))
-                {
-                    Console.WriteLine("Administrator says, 'Yum, pizza is my favorite. I'd take that off your hands but I've already had lunch today'.\n");
-                }
-                if (command.Contains("front desk") && command.Contains("cat"))
-                {
-                    Console.WriteLine("Oh you're looking for the missing cat? I heard it was last seen at the park.");
-                }
-                if (command.Contains("exit") || command.Contains("leave"))
-                {
-                    Console.WriteLine("you exit the doctor's office.");
+                    Console.WriteLine(currentRoom.Splash);
+                    strikes += 1;
                     Console.WriteLine("Which direction will you go?");
                     command = Console.ReadLine().ToLower();
-                    if (currentRoom == DoctorsOffice && command.Contains("south"))
+
+                    if (currentRoom == EdgeOfTownNorth && command.Contains("north"))
                     {
-                        currentRoom = EdgeOfTownSouth;
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
                     }
-                    else if (currentRoom == DoctorsOffice && command.Contains("north"))
+                    if (currentRoom == EdgeOfTownNorth && command.Contains("south"))
+                    {
+                        currentRoom = Apartments;
+                    }
+                    if (currentRoom == EdgeOfTownNorth && command.Contains("east"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+                    if (currentRoom == EdgeOfTownNorth && command.Contains("west"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+
+                }
+                while (currentRoom == EdgeOfTownSouth && warmPizza == true)
+                {
+                    Console.WriteLine(currentRoom.Splash);
+                    strikes += 1;
+                    Console.WriteLine("Which direction will you go?");
+                    command = Console.ReadLine().ToLower();
+
+                    if (currentRoom == EdgeOfTownSouth && command.Contains("north"))
+                    {
+                        currentRoom = DoctorsOffice;
+                    }
+                    if (currentRoom == EdgeOfTownSouth && command.Contains("south"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+                    if (currentRoom == EdgeOfTownSouth && command.Contains("east"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+                    if (currentRoom == EdgeOfTownSouth && command.Contains("west"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+
+                }
+                while (currentRoom == EdgeOfTownEast && warmPizza == true)
+                {
+                    Console.WriteLine(currentRoom.Splash);
+                    strikes += 1;
+                    Console.WriteLine("Which direction will you go?");
+                    command = Console.ReadLine().ToLower();
+
+                    if (currentRoom == EdgeOfTownEast && command.Contains("north"))
+                    {
+                        currentRoom = Bank;
+                    }
+                    if (currentRoom == EdgeOfTownEast && command.Contains("south"))
                     {
                         currentRoom = Park;
                     }
-                    else if (currentRoom == DoctorsOffice && command.Contains("east"))
+                    if (currentRoom == EdgeOfTownEast && command.Contains("east"))
                     {
                         Console.WriteLine("this leads to nowhere, try a different direction.");
                     }
-                    else if (currentRoom == DoctorsOffice && command.Contains("west"))
+                    if (currentRoom == EdgeOfTownEast && command.Contains("west"))
                     {
-                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                        currentRoom = GroceryStore;
                     }
                 }
-                else
+                while (currentRoom == EdgeOfTownWest && warmPizza == true)
                 {
-                    Console.WriteLine("Try a different command.");
+                    Console.WriteLine(currentRoom.Splash);
+                    strikes += 1;
+                    Console.WriteLine("Which direction will you go?");
+                    command = Console.ReadLine().ToLower();
+
+                    if (currentRoom == EdgeOfTownWest && command.Contains("north"))
+                    {
+                        currentRoom = Bank;
+                    }
+                    if (currentRoom == EdgeOfTownWest && command.Contains("south"))
+                    {
+                        currentRoom = Park;
+                    }
+                    if (currentRoom == EdgeOfTownWest && command.Contains("east"))
+                    {
+                        currentRoom = Suburbs;
+                    }
+                    if (currentRoom == EdgeOfTownWest && command.Contains("west"))
+                    {
+                        Console.WriteLine("this leads to nowhere, try a different direction.");
+                    }
+
                 }
-            }
-            while (currentRoom == Suburbs)
+                while (currentRoom == DoctorsOffice && warmPizza == true)
+                {
+                    Console.WriteLine(currentRoom.Splash);
+                    Console.WriteLine("What will you do? \n");
+                    command = Console.ReadLine().ToLower();
+                    if (command.Contains("purple") || command.Contains("lipstick"))
+                    {
+                        Console.WriteLine("You talk to the woman with purple lipstick.\n" +
+                            "She remarks, 'Smells like cheese pizza, my friend up north loves cheese pizza!'\n" +
+                            "If I knew you better, I'd tell you who it is. But, I don't, so goodbye!");
+                    }
+
+                    if (command.Contains("front desk") || command.Contains("admin"))
+                    {
+                        Console.WriteLine("Administrator says, 'Yum, pizza is my favorite. I'd take that off your hands but I've already had lunch today'.\n");
+                    }
+                    if (command.Contains("front desk") && command.Contains("cat"))
+                    {
+                        Console.WriteLine("Oh you're looking for the missing cat? I heard it was last seen at the park.");
+                    }
+                    if (command.Contains("exit") || command.Contains("leave"))
+                    {
+                        Console.WriteLine("you exit the doctor's office.");
+                        Console.WriteLine("Which direction will you go?");
+                        command = Console.ReadLine().ToLower();
+                        if (currentRoom == DoctorsOffice && command.Contains("south"))
+                        {
+                            currentRoom = EdgeOfTownSouth;
+                        }
+                        else if (currentRoom == DoctorsOffice && command.Contains("north"))
+                        {
+                            currentRoom = Park;
+                        }
+                        else if (currentRoom == DoctorsOffice && command.Contains("east"))
+                        {
+                            Console.WriteLine("this leads to nowhere, try a different direction.");
+                        }
+                        else if (currentRoom == DoctorsOffice && command.Contains("west"))
+                        {
+                            Console.WriteLine("this leads to nowhere, try a different direction.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try a different command.");
+                        }
+                    }
+                
+                }
+                while (currentRoom == Suburbs && warmPizza == true)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -708,29 +718,20 @@ namespace PairProgrammingGame
                         }
                     }
                 }
-                if (strikes == 3)
+                if (warmPizza == false)
+                {
+                    Console.WriteLine("Pizza is no longer warm, you have failed");
+                    Console.WriteLine("game over");
+                    if (catFound)
                     {
-                        warmPizza = false;
-
+                        Console.WriteLine("you found the missing cat!");
                     }
-                    else
-                    {
-                        warmPizza = true;
-                    }
-                    if (warmPizza == false)
-                    {
-                        Console.WriteLine("Pizza is no longer warm, you have failed");
-                        Console.WriteLine("game over");
-                        if (catFound)
-                        {
-                            Console.WriteLine("you found the missing cat!");
-                        }
-                        Console.Clear();
-                        GameTitle();
-                    }
-
-
+                    Console.Clear();
+                    GameTitle();
                 }
+
+            }
+        }
         public static Room Bank = new Room(
         "You are at the bank. You see a police officer about to greet the bank teller.\n" +
         "You also see an emergency exit and the entrance you just came from.\n",
