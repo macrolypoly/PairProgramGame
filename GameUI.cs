@@ -167,17 +167,9 @@ namespace PairProgrammingGame
             }
             bool warmPizza = true;
             int strikes = 0;
-            if (strikes == 3)
-            {
-                warmPizza = false;
 
-            }
-            else
-            {
-                warmPizza = true;
-            }
 
-            while (warmPizza)
+            while (warmPizza == true && strikes != 3)
             {
                 while (currentRoom == Bank && warmPizza == true)
                 {
@@ -237,7 +229,7 @@ namespace PairProgrammingGame
                     }
                 }
 
-                while (currentRoom == Apartments && warmPizza == true)
+                while (currentRoom == Apartments && warmPizza == true && strikes != 3)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -387,7 +379,7 @@ namespace PairProgrammingGame
 
                 }
 
-                while (currentRoom == GroceryStore && warmPizza == true)
+                while (currentRoom == GroceryStore && warmPizza == true && strikes != 3)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -499,7 +491,7 @@ namespace PairProgrammingGame
                         }
                     }
                 }
-                while (currentRoom == Pizza && warmPizza == true)
+                while (currentRoom == Pizza && warmPizza == true && strikes != 3)
                 {
                     Console.WriteLine("You are back at the pizza shop. Your boss is looking at you angrily. Stacy is wiping down a desk, pointedly avoiding eavesdropping.");
                     Console.WriteLine("He yells, 'What are you doing here? Go deliver that pizza!'");
@@ -538,8 +530,17 @@ namespace PairProgrammingGame
                         }
                     }
                 }
-                while (currentRoom == EdgeOfTownNorth && warmPizza == true)
+                while (currentRoom == EdgeOfTownNorth && warmPizza == true && strikes != 3)
                 {
+                    if (strikes == 3)
+                    {
+                        warmPizza = false;
+
+                    }
+                    else
+                    {
+                        warmPizza = true;
+                    }
                     Console.WriteLine(currentRoom.Splash);
                     strikes += 1;
                     Console.WriteLine("Which direction will you go?");
@@ -563,8 +564,17 @@ namespace PairProgrammingGame
                     }
 
                 }
-                while (currentRoom == EdgeOfTownSouth && warmPizza == true)
+                while (currentRoom == EdgeOfTownSouth && warmPizza == true && strikes != 3)
                 {
+                    if (strikes == 3)
+                    {
+                        warmPizza = false;
+
+                    }
+                    else
+                    {
+                        warmPizza = true;
+                    }
                     Console.WriteLine(currentRoom.Splash);
                     strikes += 1;
                     Console.WriteLine("Which direction will you go?");
@@ -588,8 +598,17 @@ namespace PairProgrammingGame
                     }
 
                 }
-                while (currentRoom == EdgeOfTownEast && warmPizza == true)
+                while (currentRoom == EdgeOfTownEast && warmPizza == true && strikes != 3)
                 {
+                    if (strikes == 3)
+                    {
+                        warmPizza = false;
+
+                    }
+                    else
+                    {
+                        warmPizza = true;
+                    }
                     Console.WriteLine(currentRoom.Splash);
                     strikes += 1;
                     Console.WriteLine("Which direction will you go?");
@@ -614,6 +633,15 @@ namespace PairProgrammingGame
                 }
                 while (currentRoom == EdgeOfTownWest && warmPizza == true)
                 {
+                    if (strikes == 3)
+                    {
+                        warmPizza = false;
+
+                    }
+                    else
+                    {
+                        warmPizza = true;
+                    }
                     Console.WriteLine(currentRoom.Splash);
                     strikes += 1;
                     Console.WriteLine("Which direction will you go?");
@@ -637,7 +665,7 @@ namespace PairProgrammingGame
                     }
 
                 }
-                while (currentRoom == DoctorsOffice && warmPizza == true)
+                while (currentRoom == DoctorsOffice && warmPizza == true && strikes != 3)
                 {
                     Console.WriteLine(currentRoom.Splash);
                     Console.WriteLine("What will you do? \n");
@@ -717,7 +745,17 @@ namespace PairProgrammingGame
                             currentRoom = Park;
                         }
                     }
+                    if (strikes == 3)
+                    {
+                        warmPizza = false;
+
+                    }
+                    else
+                    {
+                        warmPizza = true;
+                    }
                 }
+
                 if (warmPizza == false)
                 {
                     Console.WriteLine("Pizza is no longer warm, you have failed");
@@ -730,6 +768,17 @@ namespace PairProgrammingGame
                     GameTitle();
                 }
 
+            }
+            if (warmPizza == false)
+            {
+                Console.WriteLine("Pizza is no longer warm, you have failed");
+                Console.WriteLine("game over");
+                if (catFound)
+                {
+                    Console.WriteLine("you found the missing cat!");
+                }
+                Console.Clear();
+                GameTitle();
             }
         }
         public static Room Bank = new Room(
